@@ -1,11 +1,59 @@
 import SwiftUI
 
 struct RepoForm: View {
+    @State private     var repoName: String = ""
+    @State private 	var repoDescription: String = ""
+    
     var body: some View {
         NavigationStack{
             VStack{
-                Text("Formulario")
+                Spacer()
+                TextField(
+                    "",
+                    text: $repoName,
+                    prompt: Text("Nombre del repositorio")
+                        .foregroundStyle(.black.opacity(0.5))
+                )
+                .textFieldStyle(.roundedBorder)
+                .padding(.vertical)
+                
+                TextField(
+                    "",
+                    text: $repoDescription,
+                    prompt: Text("Descripcion del repositorio")
+                        .foregroundStyle(.black.opacity(0.5))
+                )
+                .textFieldStyle(.roundedBorder)
+                .lineLimit(3...6)
+                .padding(.vertical)
+                
+                Spacer()
+                
+                HStack{
+                    Button(action: {
+                        print("Boton presionado")
+                    }){
+                       Label("Cancelar",systemImage:
+                                "xmark.circle")
+                       .padding(.all, 4)
+                       .foregroundStyle(.red)
+                    }
+                    .buttonStyle(.bordered)
+                    .padding(.horizontal, 4)
+                    
+                    Button(action: {
+                        print("Boton presionado")
+                    }){
+                       Label("Guardar",systemImage:
+                                "square.and.arrow.down")
+                       .padding(.all, 4)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.all, 4)
+                }
+                
             }
+            .padding()
             .navigationTitle("Formularios de Repositorios")
             .navigationBarTitleDisplayMode(.inline)
         }
