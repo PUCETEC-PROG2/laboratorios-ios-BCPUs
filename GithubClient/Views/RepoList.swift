@@ -5,7 +5,6 @@ struct RepoList: View {
     
     var body: some View {
         NavigationStack{
-            ScrollView{
                 Group{
                     if viewController.isLoading {
                         ProgressView("Cargando los repositorios...")
@@ -20,7 +19,6 @@ struct RepoList: View {
                     }
                     
 
-            }
             }
         .navigationTitle("Repositorios")
         }

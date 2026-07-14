@@ -22,9 +22,7 @@ struct RepoItem: View {
             
             }
             .frame(width: 80, height: 80)
-            
-            
-            Spacer()
+            .padding(.trailing, 8)
             
             VStack (alignment: .leading){
                 Text(repository.name)
